@@ -1,0 +1,17 @@
+﻿<Window x:Class="CulinaryBook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CulinaryBook"
+        mc:Ignorable="d"
+        Icon="istockphoto-1185879263-612x612.png"
+        Title="Книга рецептов" Height="450" Width="800">
+    <Grid>
+        <StackPanel RenderTransformOrigin="0.494,0.48">
+            <Image Height="134" Source="/istockphoto-1185879263-612x612.png" Stretch="Fill" Width="130"/>
+            <Frame x:Name="frMain" Height="295"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
