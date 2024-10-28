@@ -15,6 +15,8 @@
         <Label x:Name="labelPassword" Content="Введите пароль" HorizontalAlignment="Left" Margin="327,126,0,0" VerticalAlignment="Top" Foreground="#FFF71414" RenderTransformOrigin="-0.214,0.561" Background="White"/>
         <Label Content="Введите логин" HorizontalAlignment="Left" Margin="327,72,0,0" VerticalAlignment="Top" Foreground="#FFDE1919" Background="#FFFFFCFC" RenderTransformOrigin="0.486,-0.597"/>
         <Label x:Name="authLabel" Content="Авторизация" HorizontalAlignment="Left" Margin="272,9,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.069,-0.056" FontSize="36"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="761,253,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="authBtn" Content="Authorization" HorizontalAlignment="Left" Margin="330,242,0,0" VerticalAlignment="Top" Width="114" Height="31" Background="#FF6FB71D" RenderTransformOrigin="0.513,-0.099" Click="authBtn_Click"/>
 
     </Grid>
 </Page>

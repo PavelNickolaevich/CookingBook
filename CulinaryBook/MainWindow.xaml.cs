@@ -24,9 +24,10 @@ namespace CulinaryBook
         public MainWindow()
         {
             InitializeComponent();
+            
+            AppConnect.culinaryEntities = new CulinaryBookEntities();
             ApplicationData.AppFrame.frMain = FrMain;
             FrMain.Navigate(new Pages.Authorization());
-            AppConnect.culinaryEntities = new CulinaryEntities();
         }
     }
 }

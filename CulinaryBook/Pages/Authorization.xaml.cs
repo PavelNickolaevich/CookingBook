@@ -46,7 +46,7 @@ namespace CulinaryBook.Pages
                         );
                 } else
                 {
-                    SqlConnection sqlConnection = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Integrated Security=True");
+                    SqlConnection sqlConnection = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CulinaryBook;Integrated Security=True");
                     sqlConnection.Open();
                     
                     SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
@@ -80,6 +80,11 @@ namespace CulinaryBook.Pages
                     );
 
             }
+        }
+
+        private void authBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.Registration());
         }
     }
 }

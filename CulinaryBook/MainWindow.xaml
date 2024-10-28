@@ -10,7 +10,7 @@
     <Grid>
         <StackPanel RenderTransformOrigin="0.494,0.48">
             <Image Height="134" Source="/istockphoto-1185879263-612x612.png" Stretch="Fill" Width="130"/>
-            <Frame x:Name="FrMain" Height="295"/>
+            <Frame x:Name="FrMain" Height="295" NavigationUIVisibility="Hidden"/>
         </StackPanel>
 
     </Grid>
