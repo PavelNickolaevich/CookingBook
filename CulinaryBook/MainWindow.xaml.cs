@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CulinaryBook.ApplicationData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,9 @@ namespace CulinaryBook
         public MainWindow()
         {
             InitializeComponent();
-            ApplicationData.AppFrame.frMain = frMain;
-            frMain.Navigate(new Pages.Authorization());
+            ApplicationData.AppFrame.frMain = FrMain;
+            FrMain.Navigate(new Pages.Authorization());
+            AppConnect.culinaryEntities = new CulinaryEntities();
         }
     }
 }

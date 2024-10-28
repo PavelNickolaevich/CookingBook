@@ -11,7 +11,7 @@
     <Grid>
         <TextBox x:Name="logTxtBox" HorizontalAlignment="Left" Margin="327,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.499,0.106"/>
         <PasswordBox x:Name="passTxtBox" HorizontalAlignment="Left" Margin="327,157,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.494,0.427"/>
-        <Button x:Name="logBtn" Content="Login" HorizontalAlignment="Left" Margin="327,194,0,0" VerticalAlignment="Top" Width="115" Height="31" Background="#FF6FB71D" RenderTransformOrigin="0.513,-0.099"/>
+        <Button x:Name="logBtn" Content="Login" HorizontalAlignment="Left" Margin="327,194,0,0" VerticalAlignment="Top" Width="115" Height="31" Background="#FF6FB71D" RenderTransformOrigin="0.513,-0.099" Click="logBtn_Click"/>
         <Label x:Name="labelPassword" Content="Введите пароль" HorizontalAlignment="Left" Margin="327,126,0,0" VerticalAlignment="Top" Foreground="#FFF71414" RenderTransformOrigin="-0.214,0.561" Background="White"/>
         <Label Content="Введите логин" HorizontalAlignment="Left" Margin="327,72,0,0" VerticalAlignment="Top" Foreground="#FFDE1919" Background="#FFFFFCFC" RenderTransformOrigin="0.486,-0.597"/>
         <Label x:Name="authLabel" Content="Авторизация" HorizontalAlignment="Left" Margin="272,9,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.069,-0.056" FontSize="36"/>

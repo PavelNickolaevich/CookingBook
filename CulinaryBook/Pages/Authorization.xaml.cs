@@ -1,5 +1,9 @@
-﻿using System;
+﻿using CulinaryBook.ApplicationData;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +24,62 @@ namespace CulinaryBook.Pages
     /// </summary>
     public partial class Authorization : Page
     {
+      
+      
         public Authorization()
         {
             InitializeComponent();
+        }
+
+        private void logBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var userObj = AppConnect.culinaryEntities.Authors.FirstOrDefault(x => x.Login == logTxtBox.Text && x.Password == passTxtBox.Password);
+                if (userObj == null)
+                {
+                    MessageBox.Show(
+                        "Такого пользователя нет",
+                        "Ошибка при авторизации",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                        );
+                } else
+                {
+                    SqlConnection sqlConnection = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Integrated Security=True");
+                    sqlConnection.Open();
+                    
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+                    DataTable dataTable = new DataTable();
+                    string query = $"select * from Authors where Login='{logTxtBox.Text}' and Password='{passTxtBox.Password}'";
+                    SqlCommand sqlCom = new SqlCommand(query, sqlConnection);
+                    sqlDataAdapter.SelectCommand = sqlCom;
+                    sqlDataAdapter.Fill(dataTable);
+
+                    if (dataTable.Rows.Count == 1)
+                    {
+                        MessageBox.Show(
+                   "Вы успешно вошли",
+                   "Успешно",
+                   MessageBoxButton.OK,
+                   MessageBoxImage.Information
+                   );
+
+                    }
+               
+                    sqlConnection.Close();
+
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Ошибка" + ex.Message.ToString() + "Критическая работа приложения",
+                    "Уведомление",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning
+                    );
+
+            }
         }
     }
 }
