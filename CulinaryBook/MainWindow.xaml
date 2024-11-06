@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:CulinaryBook"
         mc:Ignorable="d"
         Icon="istockphoto-1185879263-612x612.png"
-        Title="Книга рецептов" Height="450" Width="800">
+        Title="Книга рецептов" Height="600" Width="800">
     <Grid>
         <StackPanel RenderTransformOrigin="0.494,0.48">
-            <Image Height="134" Source="/istockphoto-1185879263-612x612.png" Stretch="Fill" Width="130"/>
-            <Frame x:Name="FrMain" Height="295" NavigationUIVisibility="Hidden"/>
+            <Image Height="100" Source="/istockphoto-1185879263-612x612.png" Stretch="Fill" Width="100"  HorizontalAlignment="Center" />
+            <Frame x:Name="FrMain" Height="450" NavigationUIVisibility="Hidden"/>
         </StackPanel>
 
     </Grid>

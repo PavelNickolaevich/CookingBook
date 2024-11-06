@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -67,6 +68,17 @@ namespace CulinaryBook.Pages
                     return;
                 }
 
+                if(!String.IsNullOrEmpty(emailTxt.Text) && !CheckIsValidEmail(emailTxt.Text)) {
+                    MessageBox.Show("Некорректный email", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+
+                if (!String.IsNullOrEmpty(phoneTxt.Text) && !CheckIsValidPhoneNumber(phoneTxt.Text))
+                {
+                    MessageBox.Show("Некорректный телефон", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
+                }
+
                 Authors author = new Authors()
                 {
                     Login = loginTxt.Text,
@@ -90,6 +102,20 @@ namespace CulinaryBook.Pages
             {
 
             }
+        }
+
+        private bool CheckIsValidEmail(string email)
+        {
+            Regex regex = new Regex("r\"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$)\"");
+            MatchCollection match = regex.Matches(email);
+            return match.Count < 1 ? false : true;
+        }
+
+        private bool CheckIsValidPhoneNumber(string phoneNumber)
+        {
+            Regex regex = new Regex("^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$");
+            MatchCollection match = regex.Matches(phoneNumber);
+            return match.Count < 1 ? false : true;
         }
     }
 }

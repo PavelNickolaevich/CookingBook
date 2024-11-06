@@ -11,7 +11,8 @@ namespace CulinaryBook.ApplicationData
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Authors
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,17 +20,27 @@ namespace CulinaryBook.ApplicationData
         {
             this.Recipes = new HashSet<Recipes>();
         }
-    
+
+        [Key]
         public int AuthorID { get; set; }
+        [Required]
         public string AuthorName { get; set; }
+        [StringLength(20, MinimumLength = 3)]
         public string Login { get; set; }
+        [Required]
+        [StringLength(255, MinimumLength = 2)]
         public string Password { get; set; }
         public Nullable<System.DateTime> Birth_of_date { get; set; }
         public string Phone { get; set; }
+
+        [EmailAddress]
         public string Email { get; set; }
         public Nullable<int> Experience { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Recipes> Recipes { get; set; }
     }
+
+
+
 }
