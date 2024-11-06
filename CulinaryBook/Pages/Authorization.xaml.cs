@@ -46,30 +46,34 @@ namespace CulinaryBook.Pages
                         );
                 } else
                 {
-                    SqlConnection sqlConnection = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CulinaryBook;Integrated Security=True");
-                    sqlConnection.Open();
-                    
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-                    DataTable dataTable = new DataTable();
-                    string query = $"select * from Authors where Login='{logTxtBox.Text}' and Password='{passTxtBox.Password}'";
-                    SqlCommand sqlCom = new SqlCommand(query, sqlConnection);
-                    sqlDataAdapter.SelectCommand = sqlCom;
-                    sqlDataAdapter.Fill(dataTable);
+                    //SqlConnection sqlConnection = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CulinaryBook;Integrated Security=True");
+                    //SqlConnection sqlConnection = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CulinaryBook;Integrated Security=True");
+                    //sqlConnection.Open();
 
-                    if (dataTable.Rows.Count == 1)
-                    {
-                        MessageBox.Show(
-                   "Вы успешно вошли",
+                    //SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+                    //DataTable dataTable = new DataTable();
+                    //string query = $"select * from Authors where Login='{logTxtBox.Text}' and Password='{passTxtBox.Password}'";
+                    //SqlCommand sqlCom = new SqlCommand(query, sqlConnection);
+                    //sqlDataAdapter.SelectCommand = sqlCom;
+                    //sqlDataAdapter.Fill(dataTable);
+
+                    // if (dataTable.Rows.Count == 1)
+
+                    MessageBox.Show(
+                  "Вы успешно вошли",
                    "Успешно",
-                   MessageBoxButton.OK,
-                   MessageBoxImage.Information
-                   );
+                  MessageBoxButton.OK,
+               MessageBoxImage.Information);
 
-                    }
-               
-                    sqlConnection.Close();
+
+                    NavigationService.Navigate(new Pages.Recepies());
 
                 }
+
+                //sqlConnection.Close();
+                //NavigationService.Navigate(new Pages.Recepies());
+
+                //}
             } catch (Exception ex)
             {
                 MessageBox.Show(

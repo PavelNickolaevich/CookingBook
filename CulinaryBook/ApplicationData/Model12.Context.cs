@@ -13,10 +13,10 @@ namespace CulinaryBook.ApplicationData
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CulinaryBookEntities1 : DbContext
+    public partial class CulinaryBookEntities2 : DbContext
     {
-        public CulinaryBookEntities1()
-            : base("name=CulinaryBookEntities1")
+        public CulinaryBookEntities2()
+            : base("name=CulinaryBookEntities2")
         {
         }
     

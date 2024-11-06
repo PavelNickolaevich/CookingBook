@@ -30,7 +30,17 @@ namespace CulinaryBook.ApplicationData
         public Nullable<int> AuthorID { get; set; }
         public Nullable<int> CookingTime { get; set; }
         public string Image { get; set; }
-    
+
+        public string CurrentPhoto
+        {
+            get
+            {
+                if(String.IsNullOrEmpty(Image) || String.IsNullOrWhiteSpace(Image))
+                    return @"\Images\французские_тосты_с_клубникой.png";
+                else return @"\Images\" + Image;
+            }
+        }
+
         public virtual Authors Authors { get; set; }
         public virtual Categories Categories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
