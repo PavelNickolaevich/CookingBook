@@ -1,4 +1,5 @@
 ﻿using CulinaryBook.ApplicationData;
+using CulinaryBook.Utills;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,7 +56,12 @@ namespace CulinaryBook.Pages
             {
                 if (ApplicationData.AppConnect.culinaryEntities.Authors.Count(x => x.Login == loginTxt.Text) > 0)
                 {
-                    MessageBox.Show("Пользователь с таким логином есть!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(
+                        "Пользователь с таким логином есть!",
+                        "Уведомление",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
+                        );
                     return;
                       
                 }
@@ -64,18 +70,33 @@ namespace CulinaryBook.Pages
                     || String.IsNullOrEmpty(pswBox2.Password)
                     || String.IsNullOrWhiteSpace(pswBox2.Password))
                 {
-                    MessageBox.Show("Не заполнены все поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(
+                        "Не заполнены все поля",
+                        "Уведомление",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
+                        );
                     return;
                 }
 
-                if(!String.IsNullOrEmpty(emailTxt.Text) && !CheckIsValidEmail(emailTxt.Text)) {
-                    MessageBox.Show("Некорректный email", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                if (!String.IsNullOrEmpty(emailTxt.Text) && !ValidateFields.CheckIsValidEmail(emailTxt.Text)) {
+                    MessageBox.Show(
+                        "Некорректный email",
+                        "Уведомление",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
+                        );
                     return;
                 }
 
-                if (!String.IsNullOrEmpty(phoneTxt.Text) && !CheckIsValidPhoneNumber(phoneTxt.Text))
+                if (!String.IsNullOrEmpty(phoneTxt.Text) && !ValidateFields.CheckIsValidPhoneNumber(phoneTxt.Text))
                 {
-                    MessageBox.Show("Некорректный телефон", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(
+                        "Некорректный телефон",
+                        "Уведомление",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information
+                        );
                     return;
                 }
 
@@ -93,29 +114,26 @@ namespace CulinaryBook.Pages
 
                 AppConnect.culinaryEntities.Authors.Add(author);
                 AppConnect.culinaryEntities.SaveChanges();
-                MessageBox.Show("Данные успешно добавлены", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(
+                    "Данные успешно добавлены",
+                    "Уведомление",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information
+                    );
                 ApplicationData.AppFrame.frMain.GoBack();
                 
-
             }
             catch (Exception ex)
             {
+                MessageBox.Show(
+                    $"Произошла непредвиденная ошибка: {ex.Message}",
+                    "Ошибка регистрации",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information
+                    );
+                Logger.LogError(ex);
 
             }
-        }
-
-        private bool CheckIsValidEmail(string email)
-        {
-            Regex regex = new Regex("r\"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$)\"");
-            MatchCollection match = regex.Matches(email);
-            return match.Count < 1 ? false : true;
-        }
-
-        private bool CheckIsValidPhoneNumber(string phoneNumber)
-        {
-            Regex regex = new Regex("^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$");
-            MatchCollection match = regex.Matches(phoneNumber);
-            return match.Count < 1 ? false : true;
         }
     }
 }

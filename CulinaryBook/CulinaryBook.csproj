@@ -64,6 +64,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Utills\Logger.cs" />
+    <Compile Include="Utills\ValidateFields.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -233,6 +235,8 @@
       <DependentUpon>Model12.edmx</DependentUpon>
       <LastGenOutput>Model12.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\lock.png" />
+    <Resource Include="Images\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

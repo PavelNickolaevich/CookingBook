@@ -14,8 +14,10 @@
         <TextBox x:Name="logTxtBox" HorizontalAlignment="Center" Margin="0,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.499,0.106"/>
         <Label x:Name="labelPassword" Content="Введите пароль" HorizontalAlignment="Center"  VerticalAlignment="Top" Foreground="#FFF71414" RenderTransformOrigin="-0.214,0.561" Background="White" Margin="0,140,0,0"/>
         <PasswordBox x:Name="passTxtBox" HorizontalAlignment="Center" Margin="0,170,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.494,0.427"/>
-        <Button x:Name="logBtn" Content="Login" HorizontalAlignment="Center" Margin="0,220,0,0" VerticalAlignment="Top" Width="115" Height="31" Background="#FF6FB71D" RenderTransformOrigin="0.513,-0.099" Click="logBtn_Click"/>
-        <Button x:Name="authBtn" Content="Registration" HorizontalAlignment="Center" Margin="0,260,0,0" VerticalAlignment="Top" Width="115" Height="31" Background="#FF6FB71D" RenderTransformOrigin="0.513,-0.099" Click="authBtn_Click"/>
+        <Button x:Name="logBtn" Content="Login" HorizontalAlignment="Center" Margin="0,220,0,0" VerticalAlignment="Top" Width="115" Height="31" Background="#FF6FB71D" RenderTransformOrigin="0.513,-0.099" Click="logBtn_Click" Cursor="Hand"/>
+        <Button x:Name="authBtn" Content="Registration" HorizontalAlignment="Center" Margin="0,260,0,0" VerticalAlignment="Top" Width="115" Height="31" Background="#FF6FB71D" RenderTransformOrigin="0.513,-0.099" Click="authBtn_Click" Cursor="Hand"/>
+        <Image x:Name="UserPicture" HorizontalAlignment="Left" Height="30" Margin="293,104,0,0" VerticalAlignment="Top" Width="30" Source="/Images/user.png"/>
+        <Image x:Name="LockPicture" HorizontalAlignment="Left" Height="30" Margin="293,164,0,0" VerticalAlignment="Top" Width="30" Source="/Images/lock.png"/>
 
     </Grid>
 </Page>

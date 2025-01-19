@@ -29,5 +29,20 @@ namespace CulinaryBook
             ApplicationData.AppFrame.frMain = FrMain;
             FrMain.Navigate(new Pages.Authorization());
         }
+
+        private void closeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void closeButton_Enter(object sender, MouseEventArgs e)
+        {
+            closeButton.Foreground = Brushes.Chocolate;
+        }
+
+        private void closeButton_MouseLeave(object sender, MouseEventArgs e)
+        {
+            closeButton.Foreground = Brushes.Black;
+        }
     }
 }
