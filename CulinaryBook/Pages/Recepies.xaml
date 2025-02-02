@@ -24,7 +24,8 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="400"/>
-                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
                         <Image Source="{Binding CurrentPhoto}" Grid.Column="0"/>
                         <StackPanel  Grid.Column="1" Width="auto" Orientation="Vertical" HorizontalAlignment="Left">
@@ -48,7 +49,13 @@
                                  <Run Text="{Binding CookingTime}"/>
                                  <Run Text="мин"/>
                             </TextBlock>
+
                         </StackPanel>
+                        <Button x:Name="deleteRecipeBtn" Content="Удалить рецепт"  Grid.Column="4" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="85" FontSize="9" Click="deleteRecipeBtn_Click"/>
+                        <Button x:Name="updateRecipeBtn" Content="Изменить рецепт"  Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" Width="85" FontSize="9" Click="updateRecipeBtn_Click"/>
+
+
+
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -58,6 +65,7 @@
         <ComboBox x:Name="ComboSort" HorizontalAlignment="Left" Margin="475, 11, 0, 0"  VerticalAlignment="Top" Width="190" Height="26" SelectionChanged="ComboSort_SelectionChanged" />
         <TextBlock x:Name="tbCounter" Text="Не найдено" Grid.Row="2" Width="167" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox x:Name="TextSearch" Margin="22, 11, 0, 0" Grid.Row="0" Width="167" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="TextSearch_TextChanged"/>
+        <Button x:Name="addNewRecepieBtn" Content="Добавить рецепт" HorizontalAlignment="Left" Margin="699,14,0,0" VerticalAlignment="Top" Width="85" FontSize="9" Click="addNewRecepieBtn_Click"/>
 
 
     </Grid>

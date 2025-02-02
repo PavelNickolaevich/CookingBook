@@ -1,4 +1,5 @@
 ﻿using CulinaryBook.ApplicationData;
+using CulinaryBook.dto;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,7 +25,6 @@ namespace CulinaryBook.Pages
     /// </summary>
     public partial class Authorization : Page
     {
-      
       
         public Authorization()
         {
@@ -59,14 +59,23 @@ namespace CulinaryBook.Pages
 
                     // if (dataTable.Rows.Count == 1)
 
+                    var authorId = userObj.AuthorID;
+            
+                    User user = new User(authorId);
+
+       
+
                     MessageBox.Show(
                   "Вы успешно вошли",
                    "Успешно",
                   MessageBoxButton.OK,
                MessageBoxImage.Information);
 
+      
+                    
 
-                    NavigationService.Navigate(new Pages.Recepies());
+                    NavigationService.Navigate(new Pages.Recepies(user));
+
 
                 }
 

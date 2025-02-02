@@ -64,7 +64,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="dto\User.cs" />
+    <Compile Include="Pages\AddNewRecepie.xaml.cs">
+      <DependentUpon>AddNewRecepie.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utills\Logger.cs" />
+    <Compile Include="Utills\Notification.cs" />
     <Compile Include="Utills\ValidateFields.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -137,6 +142,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddNewRecepie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Authorization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
