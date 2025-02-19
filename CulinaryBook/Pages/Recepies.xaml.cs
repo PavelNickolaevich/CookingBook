@@ -3,6 +3,7 @@ using CulinaryBook.dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,30 +25,33 @@ namespace CulinaryBook.Pages
     public partial class Recepies : Page
     {
         private User user;
+     
         public Recepies(User user)
         {
             InitializeComponent();
-            listProducts.ItemsSource = RecepiesList();
+            this.user = user;
+            listProducts.ItemsSource = RecepiesList(user.UserId);
             ComboSort.Items.Add(" < Время > ");
             ComboSort.Items.Add(" < По возростанию времени приготовления > ");
             ComboSort.Items.Add(" < По убыванию времени выполнения > ");
             ComboSort.SelectedIndex = 0;
             ComboFilter.SelectedIndex = 0;
-            var category = AppConnect.culinaryEntities.Recipes;
+            var category = AppConnect.culinaryEntities.Categories;
             ComboFilter.Items.Add("Категория");
             foreach (var item in category)
             {
-                ComboFilter.Items.Add(item.Categories);
+                ComboFilter.Items.Add(item.CategoryName);
             }
-            this.user = user;
 
         }
 
-        Recipes[] RecepiesList()
+        Recipes[] RecepiesList(int id)
         {
             try
+
             {
-                List<Recipes> recipes = AppConnect.culinaryEntities.Recipes.ToList();
+              //  var a = user.UserId;
+                List<Recipes> recipes = AppConnect.culinaryEntities.Recipes.Where(userId => userId.AuthorID == id).ToList();
                 if (TextSearch != null)
                 {
                     recipes = recipes.Where(x => x.RecipeName.ToLower().Contains(TextSearch.Text.ToLower())).ToList();
@@ -107,17 +111,17 @@ namespace CulinaryBook.Pages
 
         private void TextSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            listProducts.ItemsSource = RecepiesList();
+            listProducts.ItemsSource = RecepiesList(user.UserId);
         }
 
         private void ComboFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            listProducts.ItemsSource = RecepiesList();
+            listProducts.ItemsSource = RecepiesList(user.UserId);
         }
 
         private void ComboSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            listProducts.ItemsSource = RecepiesList();
+            listProducts.ItemsSource = RecepiesList(user.UserId);
         }
 
         private void addNewRecepieBtn_Click(object sender, RoutedEventArgs e)
@@ -135,7 +139,7 @@ namespace CulinaryBook.Pages
                 {
                     AppConnect.culinaryEntities.Recipes.Remove(recipie);
                     AppConnect.culinaryEntities.SaveChanges();
-                    RecepiesList().ToList().Remove(recipie);
+                    RecepiesList(user.UserId).ToList().Remove(recipie);
                     NavigationService.Navigate(new Pages.Recepies(user));
                 }
             }
@@ -163,6 +167,16 @@ namespace CulinaryBook.Pages
 
 
             }
+        }
+
+        private void addRecipeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.AddNewRecepie(user));
+        }
+
+        private void exitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.Authorization());
         }
     }
     

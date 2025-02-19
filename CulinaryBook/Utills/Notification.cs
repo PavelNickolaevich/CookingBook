@@ -9,7 +9,7 @@ namespace CulinaryBook.Utills
 {
      class Notification
     {
-        public static void successfulNotify(string message)
+        public static void SuccessfulNotify(string message)
         {
             MessageBox.Show(
                  message,
@@ -19,7 +19,7 @@ namespace CulinaryBook.Utills
                  );
         }
 
-        public static void failurefulNotify(string message)
+        public static void FailurefulNotify(string message)
         { 
         MessageBox.Show(
                     message,

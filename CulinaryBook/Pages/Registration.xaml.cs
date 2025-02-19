@@ -1,8 +1,10 @@
 ﻿using CulinaryBook.ApplicationData;
+using CulinaryBook.dto;
 using CulinaryBook.Utills;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -100,17 +102,18 @@ namespace CulinaryBook.Pages
                     return;
                 }
 
-                Authors author = new Authors()
+                AuthorDTO authorDto = new AuthorDTO
                 {
                     Login = loginTxt.Text,
                     AuthorName = authorTxt.Text,
                     Password = pswBox.Password,
-                    Birth_of_date = datePicker.SelectedDate,
+                    BirthOfDate = datePicker.SelectedDate,
                     Email = emailTxt.Text,
                     Experience = Convert.ToInt32(expTxt.Text),
                     Phone = phoneTxt.Text
-
                 };
+
+                var author = AuthorConverter.ConvertFromDTO(authorDto);              
 
                 AppConnect.culinaryEntities.Authors.Add(author);
                 AppConnect.culinaryEntities.SaveChanges();

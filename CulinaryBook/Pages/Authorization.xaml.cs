@@ -46,24 +46,10 @@ namespace CulinaryBook.Pages
                         );
                 } else
                 {
-                    //SqlConnection sqlConnection = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CulinaryBook;Integrated Security=True");
-                    //SqlConnection sqlConnection = new SqlConnection("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=CulinaryBook;Integrated Security=True");
-                    //sqlConnection.Open();
-
-                    //SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-                    //DataTable dataTable = new DataTable();
-                    //string query = $"select * from Authors where Login='{logTxtBox.Text}' and Password='{passTxtBox.Password}'";
-                    //SqlCommand sqlCom = new SqlCommand(query, sqlConnection);
-                    //sqlDataAdapter.SelectCommand = sqlCom;
-                    //sqlDataAdapter.Fill(dataTable);
-
-                    // if (dataTable.Rows.Count == 1)
-
-                    var authorId = userObj.AuthorID;
             
+                    var authorId = userObj.AuthorID;
                     User user = new User(authorId);
-
-       
+                   
 
                     MessageBox.Show(
                   "Вы успешно вошли",

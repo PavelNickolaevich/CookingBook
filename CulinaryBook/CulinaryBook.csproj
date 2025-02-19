@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="dto\AuthorDTO.cs" />
     <Compile Include="dto\User.cs" />
     <Compile Include="Pages\AddNewRecepie.xaml.cs">
       <DependentUpon>AddNewRecepie.xaml</DependentUpon>

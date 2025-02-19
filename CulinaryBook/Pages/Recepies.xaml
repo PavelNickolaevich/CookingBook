@@ -17,6 +17,10 @@
             <RowDefinition Height="497"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" >
+            <Button x:Name="addRecipeBtn" Content="Добавить рецепт" HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,20,35,0" Width="85" FontSize="9" Click="addRecipeBtn_Click"/>
+            <Button x:Name="exitBtn" Content="Выйти"  HorizontalAlignment="Center" VerticalAlignment="Top" Width="85"  Margin="0,20,35,0" FontSize="9" Click="exitBtn_Click"/>
+        </StackPanel>
         <ListView x:Name="listProducts" Grid.Row="1" Margin="0, 52, 0, 0">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -65,7 +69,7 @@
         <ComboBox x:Name="ComboSort" HorizontalAlignment="Left" Margin="475, 11, 0, 0"  VerticalAlignment="Top" Width="190" Height="26" SelectionChanged="ComboSort_SelectionChanged" />
         <TextBlock x:Name="tbCounter" Text="Не найдено" Grid.Row="2" Width="167" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox x:Name="TextSearch" Margin="22, 11, 0, 0" Grid.Row="0" Width="167" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="TextSearch_TextChanged"/>
-        <Button x:Name="addNewRecepieBtn" Content="Добавить рецепт" HorizontalAlignment="Left" Margin="699,14,0,0" VerticalAlignment="Top" Width="85" FontSize="9" Click="addNewRecepieBtn_Click"/>
+    
 
 
     </Grid>

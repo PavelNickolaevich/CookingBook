@@ -44,5 +44,10 @@ namespace CulinaryBook
         {
             closeButton.Foreground = Brushes.Black;
         }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.FrMain.Navigate(new Uri("Pages/Recepies.xaml", UriKind.Relative));
+        }
     }
 }

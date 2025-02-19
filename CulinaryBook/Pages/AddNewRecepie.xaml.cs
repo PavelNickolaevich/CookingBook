@@ -40,8 +40,8 @@ namespace CulinaryBook.Pages
             txtRecipeName.Text = recipie.RecipeName;
             txtDescription.Text = recipie.Description;
             txtCookTime.Text = recipie.CookingTime.ToString();
-            cmbCategory.Text = AppConnect.culinaryEntities.Categories.FirstOrDefault(c => c.CategoryID == recipie.CategoryID).CategoryName; ;
-            
+            cmbCategory.Text = AppConnect.culinaryEntities.Categories.FirstOrDefault(c => c.CategoryID == recipie.CategoryID).CategoryName;
+
         }
 
         private void LoadImage_Click(object sender, RoutedEventArgs e)
@@ -58,6 +58,7 @@ namespace CulinaryBook.Pages
                 string filePath = openFileDialog.FileName;
                 BitmapImage bitmap = new BitmapImage(new Uri(filePath));
                 imgRecipe.Source = bitmap;
+                
             }
         }
 
@@ -75,7 +76,7 @@ namespace CulinaryBook.Pages
                     RecipeName = txtRecipeName.Text,
                     Description = txtDescription.Text,
                     CookingTime = Int32.Parse(txtCookTime.Text),
-                    //   Image = imgRecipe.Name,
+                    //Image = imgRecipe.
                     CategoryID = categoryID,
                     AuthorID = user.UserId
                 };         
@@ -88,23 +89,30 @@ namespace CulinaryBook.Pages
                     updRecipie.CategoryID = categoryID;
 
                     AppConnect.culinaryEntities.SaveChanges();
-                    Notification.successfulNotify("Рецепт успешно обновлен");
+                    Notification.SuccessfulNotify("Рецепт успешно обновлен");
               
                 } else
                 {
                     AppConnect.culinaryEntities.Recipes.Add(recepie);
                     AppConnect.culinaryEntities.SaveChanges();
-                    Notification.successfulNotify("Рецепт успешно добавлен");
+                    Notification.SuccessfulNotify("Рецепт успешно добавлен");
                 }
       
                 NavigationService.Navigate(new Pages.Recepies(user));
             }
             catch (Exception ex)
             {
-                Notification.failurefulNotify($"Произошла непредвиденная ошибка: {ex.Message}");
+                Notification.FailurefulNotify($"Произошла непредвиденная ошибка: {ex.Message}");
                 Logger.LogError(ex);
             }
             
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            NavigationService.Navigate(new Pages.Recepies(user));
+        }
+
     }
 }

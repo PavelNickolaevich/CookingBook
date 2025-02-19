@@ -48,8 +48,11 @@
         </StackPanel>
 
 
-        <!-- Кнопка Сохранить -->
-        <Button Content="Сохранить" Grid.Row="5" HorizontalAlignment="Center" Margin="0,47,0,58" Click="SaveButton_Click" Width="160" Height="40"/>
+        <!-- Кнопки назад и сохранить -->
+        <StackPanel Orientation="Horizontal" Grid.Row="5" HorizontalAlignment="Center" >
+            <Button Content="Сохранить" Grid.Row="5"  HorizontalAlignment="Center" Margin="0,40,40,0" Click="SaveButton_Click" Width="160" Height="40"/>
+            <Button Content="Назад" Grid.Row="5" HorizontalAlignment="Center" Margin="40,40,0,0" Click="BackButton_Click" Width="160" Height="40"/>
+        </StackPanel>
 
     </Grid>
 </Page>
