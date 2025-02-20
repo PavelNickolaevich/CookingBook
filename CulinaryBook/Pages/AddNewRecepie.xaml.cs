@@ -4,7 +4,9 @@ using CulinaryBook.Utills;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,10 +48,15 @@ namespace CulinaryBook.Pages
 
         private void LoadImage_Click(object sender, RoutedEventArgs e)
         {
+
+            var projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            var imagePath = System.IO.Path.Combine(projectPath, "Images");
+    
             OpenFileDialog openFileDialog = new OpenFileDialog
+
             {
                 Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png|All files (*.*)|*.*",
-                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
+                InitialDirectory = imagePath,
                 Multiselect = false
             };
 
